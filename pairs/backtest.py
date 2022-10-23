@@ -89,7 +89,7 @@ class BackTester:
             dfs.update(results)
         
         pairs = pd.read_csv('pairs.csv')
-        good_pairs = pairs[pairs['pval'] >= 0.80]
+        good_pairs = pairs[pairs['pval'] < 0.05]
         print('asset1','asset2','return')
         for _, row in good_pairs.iterrows():
             roi = self.pairs_test(dfs[row['asset1']],dfs[row['asset2']])
